@@ -26,9 +26,9 @@ jobs:
         run: |
           docker build \
             --build-arg CACHE_BUST=$(date +%s) \
-            -t mahekramsay50/webapp:latest .
+            -t ${{ secrets.DOCKER_USERNAME }}/webapp:latest .
 
       # 4. Push Docker image
       - name: Push Docker image
         run: |
-          docker push mahekramsay50/webapp:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/webapp:latest
